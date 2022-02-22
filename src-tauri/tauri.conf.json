@@ -1,0 +1,91 @@
+{
+  "package": {
+    "productName": "windows-activator",
+    "version": "0.1.0"
+  },
+  "build": {
+    "distDir": "../dist",
+    "devPath": "http://localhost:3000",
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build"
+  },
+  "tauri": {
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.tauri.dev",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [],
+      "externalBin": [],
+      "copyright": "",
+      "category": "DeveloperTool",
+      "shortDescription": "",
+      "longDescription": "",
+      "deb": {
+        "depends": [],
+        "useBootstrapper": false
+      },
+      "macOS": {
+        "frameworks": [],
+        "minimumSystemVersion": "",
+        "useBootstrapper": false,
+        "exceptionDomain": "",
+        "signingIdentity": null,
+        "providerShortName": null,
+        "entitlements": null
+      },
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+
+    "updater": {
+      "active": false
+    },
+    "allowlist": {
+      "shell": {
+        "all": true,
+        "execute": true,
+        "sidecar": true,
+        "open": true,
+        "scope": [
+          {
+            "name": "set-key",
+            "cmd": "slmgr /ipk",
+            "args": [{ "validator": "^([A-Z0-9]{5}-){4}[A-Z0-9]{5}$" }]
+          },
+          {
+            "name": "set-server",
+            "cmd": "slmgr /skms s8.uk.to",
+            "args": []
+          },
+          {
+            "name": "activate",
+            "cmd": "slmgr /ato",
+            "args": []
+          }
+        ]
+      }
+    },
+    "windows": [
+      {
+        "title": "Windows Activator by Jordan",
+        "width": 550,
+        "height": 350,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  }
+}
